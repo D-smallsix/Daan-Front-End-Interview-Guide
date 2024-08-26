@@ -2,6 +2,14 @@
 
 亲爱的前端同学们，你们好！欢迎来到 `Daan-Front-End-Interview-Guide（答案前端面试宝典）` —— 一个专为挣扎在面试海洋中的前端开发者们精心打造的`避风港`。一个`系统化、高质量的面试准备平台`。
 
+[![JavaScript](https://img.shields.io/badge/JavaScript-F1E05A.svg)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![Vue.js](https://img.shields.io/badge/Vue.js-35495E.svg)](https://vuejs.org/) 
+[![React](https://img.shields.io/badge/React-61DAFB.svg)](https://reactjs.org/)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26.svg)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6.svg)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![Performance](https://img.shields.io/badge/performance-optimized-brightgreen.svg)](https://web.dev/performance-scoring/)
+
+
 
 ## 📚 项目简介
 `Daan-Front-End-Interview-Guide（答案前端面试宝典）` 是一个综合性的前端面试资源库，旨在帮助前端开发者更好地准备面试。本项目包含以下内容：
