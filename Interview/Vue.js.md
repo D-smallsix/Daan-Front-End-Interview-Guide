@@ -1,17 +1,17 @@
 ## Vue.js - 面试题
 
 
-Vue3相比Vue2有哪些主要的改进和新特性？
+✅ Vue3相比Vue2有哪些主要的改进和新特性？
 
-Vue3中为什么采用 Proxy 代替 defineProperty?
+✅ Vue3中为什么采用 Proxy 代替 defineProperty?
 
-简单解释下vue2和vue3核心 diff 算法区别？
+✅ 简单解释下vue2和vue3核心 diff 算法区别？
 
-讲一下Vue3的响应式原理?
+✅ 讲一下Vue3的响应式原理?
 
-watch 和 watchEffect 的区别？
+✅ watch 和 watchEffect 的区别？
 
-Vue3中ref和reactive有什么区别？
+✅ Vue3中ref和reactive有什么区别？
 
 Vue3 性能提升主要体现在哪些方面？
 
@@ -34,6 +34,8 @@ Vue3中的响应式系统是如何工作的？
 解释一下Vue3中的shallowRef和shallowReactive。
 
 解释一下Vue3中的Suspense组件和异步组件之间的关系
+
+
 
 vue-router 的路由钩子函数有哪些？它们的执行顺序又是怎样的？
 
@@ -192,7 +194,114 @@ Vue 组件通信的方式有哪些，如何实现 ？ 
 ---
 ---
 
-## 🤝 答案都在这里 `【你想要的答案这都有】`
-#### **扫码**点击 `面试宝典` 查看完整答案
+<!-- ## 🤝 答案都在这里 `【你想要的答案这都有】`
+## **扫码**点击 `面试宝典` 查看完整答案
 ![前端面试宝典](https://api.daan.smallsix.cn/static/static/daan-gzh-qr.jpg)
-### 感谢支持！
+## 感谢支持！ -->
+
+
+### Vue3中ref和reactive有什么区别？
+#### 一、面试官的考点分析
+- 候选人对Vue3响应式系统的理解
+- 对ref和reactive这两个核心API的掌握程度
+- 能否清晰地解释它们的区别和适用场景
+- 是否了解Vue3的组合式API（Composition API）
+- 对性能优化和最佳实践的认知
+
+
+#### 二、面试者的回答思路
+- 首先简要介绍ref和reactive的基本概念
+- 然后详细比较它们的区别，包括使用方式、适用场景等
+- 接着举例说明它们在实际开发中的应用
+- 最后谈谈在选择使用ref还是reactive时的考虑因素
+
+
+#### 三、面试题详细讲解
+`Vue3中的ref和reactive都是用于创建响应式数据的API，但它们有着不同的使用方式和适用场景`
+##### 3.1、ref:
+- ref用于创建一个响应式的数据引用，可以包装任何类型的值（基本类型或对象类型）。
+- 创建的响应式引用需要通过.value来访问或修改其值。
+- 在模板中使用时，不需要.value，Vue会自动解包。
+- 适用于需要独立追踪的单一值。
+
+##### 3.2、reactive:
+- reactive用于创建一个响应式的对象。
+- 直接使用属性访问和修改，不需要.value。
+- 只能用于对象类型（包括数组和Map、Set等集合类型）。
+- 适用于需要创建响应式对象的场景。
+
+##### 3.3、代码示例：
+1，我们使用ref创建了一个响应式的count变量，需要通过.value来访问和修改。
+
+2，使用reactive创建了一个响应式的state对象，可以直接访问和修改其属性。
+
+3，在useUser组合式函数中，我们同时使用了ref和reactive来管理不同类型的数据。
+
+4，在组件的setup函数中，我们可以方便地使用这些响应式数据和方法。
+
+```js
+import { ref, reactive } from 'vue'
+
+// 使用ref
+const count = ref(0)
+console.log(count.value) // 0
+count.value++
+console.log(count.value) // 1
+
+// 使用reactive
+const state = reactive({
+  name: 'John',
+  age: 30
+})
+console.log(state.name) // 'John'
+state.age++
+console.log(state.age) // 31
+
+// 在组合式函数中使用
+function useUser() {
+  const user = reactive({
+    name: 'Alice',
+    age: 25
+  })
+  
+  const score = ref(0)
+  
+  function incrementScore() {
+    score.value++
+  }
+  
+  return {
+    user,
+    score,
+    incrementScore
+  }
+}
+
+// 在组件中使用
+export default {
+  setup() {
+    const { user, score, incrementScore } = useUser()
+    
+    return {
+      user,
+      score,
+      incrementScore
+    }
+  }
+}
+
+```
+
+
+#### 四、 回答模板
+ref和reactive都是Vue3中用于创建响应式数据的API，但它们有一些关键区别：
+1，ref可以用于任何类型的值，而reactive只用于对象类型。
+
+2，ref创建的数据需要通过.value访问，reactive创建的对象可以直接访问属性。
+
+3，ref通常用于独立的原始值，reactive适合复杂的数据结构。
+
+在开发中，我会根据数据的类型和使用场景来选择合适的API。对于简单的值，我倾向于使用ref；对于复杂的对象结构，我会选择reactive。这样可以让代码更清晰，并充分利用Vue3的响应式系统。同时，我也会注意性能优化，避免不必要的响应式转换。
+
+---
+---
