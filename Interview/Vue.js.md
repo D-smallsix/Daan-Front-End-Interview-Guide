@@ -15,7 +15,7 @@
 
 ✅ Vue3 性能提升主要体现在哪些方面？
 
-谈谈你对 setup 函数的理解，它的作用又是什么呢？
+✅ 谈谈你对 setup 函数的理解，它的作用又是什么呢？
 
 谈谈你对 Vue3中的Composition API的理解，它的出现又解决了什么问题？
 
@@ -416,6 +416,109 @@ Vue3是用TypeScript重写的，这意味着它提供了更好的类型推断和
 #### 四、回答模板
 Vue3的性能提升主要体现在以下几个方面：首先，响应式系统的重写，使用Proxy替代Object.defineProperty，提供了更强大和高效的响应式能力。其次，编译优化，如静态提升和补丁标记，减少了运行时的开销。第三，更小的打包体积，得益于更好的树状结构和摇树优化。第四，Composition API的引入，虽然主要是为了代码组织，但也带来了性能优势。`(这一点酌情参考)`最后，更好的TypeScript支持也间接提高了性能。这些改进使得Vue3在大型应用和复杂场景下表现更加出色，同时也为开发者提供了更多的优化空间。
 
+
+---
+---
+
+
+
+### 3、谈谈你对 setup 函数的理解，它的作用又是什么呢？
+#### 一、面试官的考点分析
+- 对Vue 3 Composition API的理解程度
+- setup函数的基本概念和作用
+- setup函数与Options API的区别
+- setup函数的执行时机
+- setup函数的参数和返回值
+- 在setup函数中使用响应式数据、计算属性、方法等
+- setup函数中的生命周期钩子
+
+
+#### 二、面试者的回答思路
+- 首先简要介绍setup函数的基本概念
+- 解释setup函数的主要作用和优势
+- 详细说明setup函数的特性,包括执行时机、参数、返回值等
+- 举例说明如何在setup函数中使用各种Composition API
+- 对比setup函数和Options API的区别
+- 最后总结setup函数在Vue 3开发中的重要性
+
+
+#### 三、面试题详细讲解
+`setup函数是Vue 3中Composition API的核心,它是一个组件选项,在组件被创建之前执行,一旦 props 被解析完成,它就将被调用。它是组合式 API 的入口`
+##### setup函数的主要作用:
+1，暴露数据和方法给模板使用
+
+2，使用组合式API来组织和复用逻辑
+
+3，替代大部分Options API的功能
+
+##### 示例：
+```js
+import { ref, computed, onMounted } from 'vue'
+
+export default {
+  props: {
+    title: String
+  },
+  setup(props, context) {
+    // 响应式状态
+    const count = ref(0)
+
+    // 计算属性
+    const doubleCount = computed(() => count.value * 2)
+
+    // 方法
+    function increment() {
+      count.value++
+    }
+
+    // 生命周期钩子
+    onMounted(() => {
+      console.log('组件已挂载')
+    })
+
+    // 暴露给模板
+    return {
+      count,
+      doubleCount,
+      increment
+    }
+  }
+}
+
+```
+##### 注解：
+##### 1，setup函数接收两个参数:
+- props: 组件的props
+- context: 一个上下文对象,包含emit, attrs, slots等
+ 
+##### 2，我们使用ref创建了响应式状态count
+##### 3，使用computed创建了计算属性doubleCount
+##### 4，定义了一个方法increment
+##### 5，使用onMounted生命周期钩子
+##### 6，最后返回一个对象,这个对象中的属性都可以在模板中使
+
+##### setup函数的特点:
+- 在创建组件实例时,在初始 prop 解析之后立即调用 setup
+- 在setup中没有this
+- 返回的对象中的属性将会被暴露给模板和组件实例
+
+##### setup函数相比Options API的优势:
+- 更好的逻辑复用和组织
+- 更灵活的代码组织
+- 更好的类型推导
+
+---
+
+#### 四、回答模板
+setup函数是Vue 3 Composition API的核心，主要有三个作用：暴露数据和方法给模板使用、使用组合式API组织和复用逻辑、可以替代大部分Options API功能。
+
+setup在组件创建前执行，接收props和context作为参数。在其中，我们可以定义响应式状态、计算属性、方法和生命周期钩子。
+
+相比Options API，setup提供了更灵活的代码组织方式和更好的逻辑复用能力。它让我们能够根据逻辑关注点来组织代码，而不是按照options分割，特别适合处理复杂逻辑的组件。
+
+setup还对TypeScript提供了更好的支持，便于类型声明，提高代码可读性和可维护性。
+
+在实际项目中，setup函数可以帮助我们写出更清晰、更易维护的代码，而且还更灵活。虽然有点难学，有点难理解，但是长期来看能提高开发效率，能更好的复用逻辑（架构封装），还能提高一定的代码质量。
 
 ---
 ---
