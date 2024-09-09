@@ -9,6 +9,9 @@
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6.svg)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![Performance](https://img.shields.io/badge/performance-optimized-brightgreen.svg)](https://web.dev/performance-scoring/)
 
+## 先放个二维码，扫码直接看答案面试宝典
+![答案前端面试宝典](https://api.daan.smallsix.cn/static/static/daan-gzh-qr.jpg)
+
 
 
 ## 📚 项目简介
@@ -114,7 +117,7 @@
 
 ## 🤝 来吧！加入我们 `【你想要的答案这都有】`
 #### **扫码加入** `Daan-Front-End-Interview-Guide（答案前端面试宝典）` 
-![前端面试宝典](https://api.daan.smallsix.cn/static/static/daan-gzh-qr.jpg)
+![答案前端面试宝典](https://api.daan.smallsix.cn/static/static/daan-gzh-qr.jpg)
 
 
 
